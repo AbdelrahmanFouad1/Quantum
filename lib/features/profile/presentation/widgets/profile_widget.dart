@@ -275,8 +275,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                 popButtonText: appTranslation(context).cancel,
                                 pushButtonText:  appTranslation(context).yes,
                                 pushButtonVoidCallback: (){
-                                  // AppCubit.get(context).userLogout();
-                                  AppCubit.get(context).signOut(context);
+                                  AppCubit.get(context).userLogout();
+                                  // AppCubit.get(context).signOut(context);
                                 },
                                 popButtonVoidCallback: (){
                                   Navigator.pop(context);

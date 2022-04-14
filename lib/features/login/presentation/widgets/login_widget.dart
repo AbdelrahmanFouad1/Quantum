@@ -254,35 +254,35 @@ class LoginWidget extends StatelessWidget {
                     ],
                   ),
                   space10Vertical(context),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          AppCubit.get(context).signInWithGoogle().then((value) {
-                            navigateTo(context, const StartPage());
-                          });
-                        },
-                        icon: const Icon(
-                            FontAwesomeIcons.google
-                        ),
-                      ),
-                      space10Horizontal(context),
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                            FontAwesomeIcons.facebook
-                        ),
-                      ),
-                      space10Horizontal(context),
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                            FontAwesomeIcons.twitter
-                        ),
-                      ),
-                    ],
-                  ),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.center,
+                  //   children: [
+                  //     IconButton(
+                  //       onPressed: () {
+                  //         AppCubit.get(context).signInWithGoogle().then((value) {
+                  //           navigateTo(context, const StartPage());
+                  //         });
+                  //       },
+                  //       icon: const Icon(
+                  //           FontAwesomeIcons.google
+                  //       ),
+                  //     ),
+                  //     space10Horizontal(context),
+                  //     IconButton(
+                  //       onPressed: () {},
+                  //       icon: const Icon(
+                  //           FontAwesomeIcons.facebook
+                  //       ),
+                  //     ),
+                  //     space10Horizontal(context),
+                  //     IconButton(
+                  //       onPressed: () {},
+                  //       icon: const Icon(
+                  //           FontAwesomeIcons.twitter
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
                 ],
               ),
             ),

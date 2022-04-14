@@ -313,44 +313,44 @@ class AppCubit extends Cubit<AppState> {
   String? phone;
   String? email;
 
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  final GoogleSignIn _googleSignIn =  GoogleSignIn();
-
-  Future<UserCredential> signInWithGoogle() async {
-
-
-    // Trigger the authentication flow
-    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-
-    // Obtain the auth details from the request
-    final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
-
-
-    // Create a new credential
-    final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth?.accessToken,
-      idToken: googleAuth?.idToken,
-    );
-
-    sl<CacheHelper>().put('googleToken', googleAuth?.accessToken);
-
-
-    // Once signed in, return the UserCredential
-    var result = (await _auth.signInWithCredential(credential));
-
-    userName = result.user!.displayName;
-    phone = result.user!.phoneNumber;
-    email = result.user!.email;
-
-    sl<CacheHelper>().put('userName', userName);
-    sl<CacheHelper>().put('email', email);
-
-    // debugPrint('userName $userName');
-    // debugPrint('phone $phone');
-    // debugPrint('email $email');
-
-    return result;
-  }
+  // final FirebaseAuth _auth = FirebaseAuth.instance;
+  // final GoogleSignIn _googleSignIn =  GoogleSignIn();
+  //
+  // Future<UserCredential> signInWithGoogle() async {
+  //
+  //
+  //   // Trigger the authentication flow
+  //   final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+  //
+  //   // Obtain the auth details from the request
+  //   final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+  //
+  //
+  //   // Create a new credential
+  //   final credential = GoogleAuthProvider.credential(
+  //     accessToken: googleAuth?.accessToken,
+  //     idToken: googleAuth?.idToken,
+  //   );
+  //
+  //   sl<CacheHelper>().put('googleToken', googleAuth?.accessToken);
+  //
+  //
+  //   // Once signed in, return the UserCredential
+  //   var result = (await _auth.signInWithCredential(credential));
+  //
+  //   userName = result.user!.displayName;
+  //   phone = result.user!.phoneNumber;
+  //   email = result.user!.email;
+  //
+  //   sl<CacheHelper>().put('userName', userName);
+  //   sl<CacheHelper>().put('email', email);
+  //
+  //   // debugPrint('userName $userName');
+  //   // debugPrint('phone $phone');
+  //   // debugPrint('email $email');
+  //
+  //   return result;
+  // }
 
 
 
@@ -425,24 +425,24 @@ class AppCubit extends Cubit<AppState> {
 
 
 
-  Future<void> signOut(context) async {
-    await _auth.signOut();
-    await _googleSignIn.signOut().then((value) {
-
-      sl<CacheHelper>().clear('googleToken').then((value) {
-        googleToken = null;
-
-        navigateAndFinish(context, const LoginPage());
-
-        sl<CacheHelper>().clear('userName');
-        sl<CacheHelper>().clear('email');
-      });
-
-    });
-
-    emit(SignOutSuccess());
-
-  }
+  // Future<void> signOut(context) async {
+  //   await _auth.signOut();
+  //   await _googleSignIn.signOut().then((value) {
+  //
+  //     sl<CacheHelper>().clear('googleToken').then((value) {
+  //       googleToken = null;
+  //
+  //       navigateAndFinish(context, const LoginPage());
+  //
+  //       sl<CacheHelper>().clear('userName');
+  //       sl<CacheHelper>().clear('email');
+  //     });
+  //
+  //   });
+  //
+  //   emit(SignOutSuccess());
+  //
+  // }
 
   //ProfilePage ------------------ end
 
